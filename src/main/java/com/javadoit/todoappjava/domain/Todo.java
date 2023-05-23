@@ -3,7 +3,7 @@ package com.javadoit.todoappjava.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/** Todo content */
+/** Содержание TODOlist */
 public class Todo {
 
     private long id;
@@ -13,7 +13,7 @@ public class Todo {
     private LocalDateTime updateAt;
     private LocalDateTime finishAt;
 
-    /** */
+    /** Сохраняет контент листа */
     public Todo(long id, String content, List<Todo> parents) {
         if (content.equals(" ")) {
             throw new IllegalArgumentException(" ");
@@ -49,7 +49,7 @@ public class Todo {
     }
 
     /**
-     *
+     * Сохраняет контент и время при обновлении
      * @param content
      * @param parents
      */
@@ -60,18 +60,18 @@ public class Todo {
     }
 
     /**
-     *
+     * Сохраняет дату и время последнего внесенного изменения
      */
     public void finish() {
         this.finishAt = LocalDateTime.now();
     }
 
     /**
-     *
+     * Проверяет, вес ли задачи завершены. Зависит от того, выполнены ли все задачи или нет.
      */
     public void checkFinished() {
         if (this.finishAt == null) {
-            throw new IllegalStateException("");
+            throw new IllegalStateException("Чтобы завершить день выполните все записанные задачи.");
         }
     }
 }

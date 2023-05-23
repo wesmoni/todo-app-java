@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-/**  */
+/** Репозиторий для TODOlist*/
 public class Repository {
 
     private List<Todo> todoList;
@@ -19,12 +19,12 @@ public class Repository {
         todoList.add(todo);
     }
 
-    /**  */
+    /** Метод возвращает ID пользователя*/
     public Todo find(long id) {
         return todoList.stream()
                 .filter(todo -> todo.getId() == id)
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException(" "));
+                .orElseThrow(() -> new IllegalStateException("Введен неверный ID. Пожалуйста, проверьте его еще раз."));
     }
 
     public List<Todo> findAll() {

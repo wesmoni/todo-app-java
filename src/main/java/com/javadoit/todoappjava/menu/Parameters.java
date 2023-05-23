@@ -3,6 +3,7 @@ package com.javadoit.todoappjava.menu;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Определяет параметры пунктов меню. */
 public class Parameters {
 
     private Menu menu;
@@ -10,7 +11,7 @@ public class Parameters {
     private String content;
     private List<Long> Ids;
 
-    /** menu, id, content, parentIds setter */
+    /** Menu, id, content, parentIds setter */
     public Parameters(Menu menu, Long id, String content, List<Long> Ids) {
         this.menu = menu;
         this.id = id;
@@ -18,13 +19,11 @@ public class Parameters {
         this.Ids = Ids;
     }
 
-    /**
-     * */
+    /** Возвращает значение в соответствии с пунком меню, который выбрал пользователь. */
     public static Parameters parse(String input) {
         String[] parsed = input.split(" ");
 
-        /**
-         * */
+        /** Сохраняет номер из меню, введенный пользователем. */
         Menu menu = Menu.fromMenuNumber(parsed[0]);
 
         switch (menu) {
@@ -45,7 +44,7 @@ public class Parameters {
             case CHECK:
                 return check();
             default:
-                throw new IllegalStateException("Wrong menu. try again.");
+                throw new IllegalStateException("Ошибка. Попробуйте снова.");
         }
     }
     private static Parameters check() {

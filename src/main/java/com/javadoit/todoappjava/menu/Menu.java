@@ -14,16 +14,14 @@ public enum Menu {
     SEARCH("6"),
     CHECK("7");
 
-    /**  */
     private String menuNumber;
 
-    /** menuNumber setter */
+    /** Сеттер для меню задач */
     Menu(String menuNumber) {
         this.menuNumber = menuNumber;
     }
 
-    /**
-     * */
+    /** Проверяет, есть ли задача в меню и если нет, то выводит сообщение об ошибке.*/
     public static Menu fromMenuNumber(String menuNumber) {
         Optional<Menu> todoMenu =
                 Arrays.stream(Menu.values()).filter(e -> e.menuNumber.equals(menuNumber)).findAny();
