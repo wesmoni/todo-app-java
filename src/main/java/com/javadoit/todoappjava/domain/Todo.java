@@ -74,4 +74,8 @@ public class Todo {
             throw new IllegalStateException("Чтобы завершить день выполните все записанные задачи.");
         }
     }
+
+    public <T> Comparable getCurrent_date() {
+        return null;
+    }
 }
